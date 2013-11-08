@@ -27,8 +27,9 @@ function help {
 
 }
 
+job_script=~/q
 qsub='qsub'
-za='./za'
+za='za'
 
 qsub_args=()
 while getopts ":q:o:dvh" opt; do
@@ -73,4 +74,4 @@ shift 2
 [[ -z "$repl_output" ]] && repl_output=${repl_name}.log
 
 # use za for handling pattern substitution
-$za $verbose $pattern $dry_run $qsub $qsub_args -N $repl_name -o $repl_output $@
+$za $verbose $pattern $dry_run $qsub $qsub_args -N $repl_name -j y -o $repl_output $job_script $@
