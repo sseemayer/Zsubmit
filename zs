@@ -59,7 +59,7 @@ while getopts ":q:o:dvh" opt; do
 	esac
 done
 
-if [[ $(($# - $OPTIND)) < 2 ]]; then
+if [[ $(($# - $OPTIND)) -lt 2 ]]; then
 	usage
 	exit 1
 fi
